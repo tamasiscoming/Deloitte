@@ -29,7 +29,8 @@
 
     public static void Run()
     {
-        Console.WriteLine("---------SQL TASK---------\n");
+
+        Console.WriteLine("Deliotte Console App Interview SQL Task\n");
         List<UserA> usersOfA = GetUserAMockData();
         List<UserB> usersOfB = GetUserBMockData();
 
@@ -71,6 +72,7 @@
         Console.WriteLine();
     }
 
+    //Szükségünk van minden userre egyszer a listánkban mely mindkét táblában előfordul, Login-ra,  a névre, és a valódi utolsó login dátumra
     private static List<object> Task1(List<UserA> usersOfA, List<UserB> usersOfB)
      {
         List<object> result = new();
@@ -86,6 +88,7 @@
         return result;
     }
 
+    //Szükségünk van minden userre mely valamelyik táblából hiányzik, Login-ra,  a névre, és a valódi utolsó login dátumra
     private static List<object> Task2(List<UserA> usersOfA, List<UserB> usersOfB)
     {
         List<object> task2resultult = new();

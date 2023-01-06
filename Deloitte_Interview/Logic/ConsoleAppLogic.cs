@@ -4,7 +4,7 @@ public class ConsoleAppLogic
 {
     public static void Run()
     {
-        Console.WriteLine("Deliotte Console App Interview Task");
+        Console.WriteLine("Deliotte Console App Interview Coding Task\n");
         List<string> input = InputHandler.GetInputFromUser();
         ProcessInputs(input);
         Console.WriteLine(string.Join("\n", input));
@@ -27,8 +27,9 @@ public class ConsoleAppLogic
             }
             else
             {
+                //2.      A bekért szövegekek esetén fűzzön hozzá annyi karakter a következő szövegből amilyen hosszú a karakterlánc – „Making an impact that matters –Deloitte”
                 int length = inputs[i].Length;
-                inputs[i] = inputs[i] + " - " + "Making an impact that matters –Deloitte".Substring(0, length);
+                inputs[i] = inputs[i] + " - " + "Making an impact that matters –Deloitte"[..length];
             }
         }
     }
