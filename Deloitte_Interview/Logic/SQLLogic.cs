@@ -41,13 +41,12 @@
         Console.Clear();
 
         Console.WriteLine("Feladat 1: Szükségünk van minden userre egyszer a listánkban mely mindkét táblában előfordul, \nLogin-ra, névre és a valódi utolsó login dátumra.\n");
-        List<object> task1res = Task1(usersOfA, usersOfB);
-        PrintListToConsole(task1res, "Task 1 Result:");
+        List<object> task1result = Task1(usersOfA, usersOfB);
+        PrintListToConsole(task1result, "Task 1 Result:");
 
         Console.WriteLine("Feladat 2: Szükségünk van minden userre mely valamelyik táblából hiányzik, \nLogin-ra, névre és a valódi utolsó login dátumra.\n");
-        List<object> task2res = Task2(usersOfA, usersOfB);
-        PrintListToConsole(task2res, "Task 2 Result:");
-
+        List<object> task2result = Task2(usersOfA, usersOfB);
+        PrintListToConsole(task2result, "Task 2 Result:");
     }
 
     public static void PrintListToConsole<T>(List<T> users, string header)
@@ -74,7 +73,7 @@
 
     private static List<object> Task1(List<UserA> usersOfA, List<UserB> usersOfB)
      {
-        List<object> result = new List<object>();
+        List<object> result = new();
 
         foreach (var item in usersOfA)
         {
@@ -89,19 +88,19 @@
 
     private static List<object> Task2(List<UserA> usersOfA, List<UserB> usersOfB)
     {
-        List<object> task2result = new List<object>();
+        List<object> task2resultult = new();
 
-        task2result.AddRange(usersOfA.Where(userA => usersOfB.Where(userB => userB.Equals(userA)).Any() == false).ToList<object>());
-        task2result.AddRange(usersOfB.Where(userB => usersOfA.Where(userA => userA.Equals(userB)).Any() == false).ToList<object>());
+        task2resultult.AddRange(usersOfA.Where(userA => usersOfB.Where(userB => userB.Equals(userA)).Any() == false).ToList<object>());
+        task2resultult.AddRange(usersOfB.Where(userB => usersOfA.Where(userA => userA.Equals(userB)).Any() == false).ToList<object>());
 
-        return task2result;
+        return task2resultult;
     }
 
     private static List<UserA> GetUserAMockData()
     {
         DateTime now = DateTime.Now;
-        List<UserA> usersOfA = new List<UserA>
-            {
+        List<UserA> usersOfA = new()
+        {
                 new UserA() { Name = "John Doe COMMON", Login = "JDA", LastLogin = now.AddMonths(new Random().Next(-500, 0)) }, // Same Name with usersOfB[0]
                 new UserA() { Name = "John Doe A", Login = "JDCOMMON", LastLogin = now.AddMonths(new Random().Next(-500, 0)) }, // Same Login with usersOfB[1]
                 new UserA() { Name = "John Doe 2A", Login = "JD 2A", LastLogin = now.AddMonths(-1) }, // Same LastLogin with usersOfB[2]
@@ -114,11 +113,12 @@
 
         return usersOfA;
     }
+
     private static List<UserB> GetUserBMockData()
     {
         DateTime now = DateTime.Now;
-        List<UserB> usersOfB = new List<UserB>
-            {
+        List<UserB> usersOfB = new()
+        {
                 new UserB() { FullName = "John Doe COMMON", LoginID = "JDB", LoginDate = now.AddMonths(new Random().Next(-500, 0)) }, // Same FullName with usersOfA[0]
                 new UserB() { FullName = "John Doe B", LoginID = "JDCOMMON", LoginDate = now.AddMonths(new Random().Next(-500, 0)) }, // Same LoginID with usersOfA[1]
                 new UserB() { FullName = "John Doe 2B", LoginID = "JD 2B", LoginDate = now.AddMonths(-1) }, // Same LoginDate with usersOfA[2]
@@ -132,6 +132,3 @@
         return usersOfB;
     }
 }
-
-
-

@@ -10,22 +10,22 @@
             {
                 Console.WriteLine($"================{i + 1}.Input================");
                 Console.WriteLine("Enter a word or number (w/n):");
-                string inputType = Console.ReadLine();
+                string inputType = Console.ReadKey().KeyChar.ToString();
 
                 while (inputType != "w" && inputType != "n")
                 {
-                    Console.WriteLine("Invalid input. Please enter either 'w' for word or 'n' for number:");
-                    inputType = Console.ReadLine();
+                    Console.WriteLine("\nInvalid input...\nPlease enter either \"w\" for word or \"n\" for number...");
+                    inputType = Console.ReadKey().KeyChar.ToString();
                 }
 
                 if (inputType == "w")
                 {
-                    Console.WriteLine("Enter a word (10-45 characters):");
+                    Console.WriteLine("\nEnter a word (10-45 characters)...");
                     string word = Console.ReadLine();
 
                     while (word.Length < 10 || word.Length > 45)
                     {
-                        Console.WriteLine("Invalid input. Please enter a word with 10-45 characters:");
+                        Console.WriteLine("\nInvalid input. Please enter a word with 10-45 characters:");
                         word = Console.ReadLine();
                     }
 
@@ -33,13 +33,12 @@
                 }
                 else if (inputType == "n")
                 {
-                    Console.WriteLine("Enter a number (10-9999):");
+                    Console.WriteLine("\nEnter a number (10-9999)...");
                     string numberString = Console.ReadLine();
-                    int number;
 
-                    while (!int.TryParse(numberString, out number) || number < 10 || number > 9999)
+                    while (!int.TryParse(numberString, out int number) || number < 10 || number > 9999)
                     {
-                        Console.WriteLine("Invalid input. Please enter a number between 10 and 9999:");
+                        Console.WriteLine("\nInvalid input...\nPlease enter a number between 10 and 9999...");
                         numberString = Console.ReadLine();
                     }
 
@@ -47,7 +46,7 @@
                 }
             }
 
-            Console.WriteLine("Inputs: " + string.Join(", ", inputs));
+            Console.WriteLine("\nInputs: " + string.Join(", ", inputs));
 
             return inputs;
         }

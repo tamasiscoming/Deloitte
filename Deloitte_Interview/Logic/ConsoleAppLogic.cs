@@ -5,21 +5,16 @@ public class ConsoleAppLogic
     public static void Run()
     {
         Console.WriteLine("Deliotte Console App Interview Task");
-
         List<string> input = InputHandler.GetInputFromUser();
-
         ProcessInputs(input);
-
         Console.WriteLine(string.Join("\n", input));
-
     }
 
     static void ProcessInputs(List<string> inputs)
     {
         for (int i = 0; i < inputs.Count; i++)
         {
-            int number;
-            if (int.TryParse(inputs[i], out number))
+            if (int.TryParse(inputs[i], out int number))
             {
                 if (IsPrime(number))
                 {
