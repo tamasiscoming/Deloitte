@@ -21,6 +21,7 @@ public class Program
         {
             case 1:
                 Console.Clear();
+                SQLLogic.Run();
                 break;
             case 2:
                 Console.Clear();
