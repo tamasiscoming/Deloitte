@@ -25,6 +25,7 @@ public class Program
                 break;
             case 2:
                 Console.Clear();
+                ConsoleAppLogic.Run();
                 break;
             default:
                 Console.Clear();
