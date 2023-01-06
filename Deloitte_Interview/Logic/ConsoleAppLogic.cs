@@ -20,6 +20,10 @@ public class ConsoleAppLogic
                 {
                     inputs[i] = number + " - THIS IS A PRIME NUMBER";
                 }
+                else
+                {
+                    inputs[i] = DoMaths(number).ToString();
+                }
             }
             else
             {
@@ -29,6 +33,16 @@ public class ConsoleAppLogic
         }
     }
 
+    //1.      A bekért számok esetén a páros számokat ossza el 2-vel a páratlanokat szorozza kettővel. Extra: jelölje a prímszámokat
+    static int DoMaths(int number)
+    {
+        if (number % 2 == 0) 
+            return number / 2;
+        else 
+            return number * 2;
+    }
+
+    //Extra: jelölje a prímszámokat
     static bool IsPrime(int number)
     {
         if (number < 2)
